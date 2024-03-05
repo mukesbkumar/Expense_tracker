@@ -11,7 +11,7 @@ async function connectToDb(){
 try{
    await mongoose.connect('mongodb+srv://mukeshbkumar2007:Cricket18*@cluster.fdivwwt.mongodb.net/expense_tracker?retryWrites=true&w=majority&appName=Cluster')
    console.log("great")
-   const port=8055
+   const port=8094
 app.listen(port,function()
 {
     console.log(`listening ${(port)}..`)
@@ -46,11 +46,12 @@ app.post('/add-expense',async function(request,response){
        
     
     
-    app.get('get-Expense',async function(request,response)
+    app.get('/get-Expense',async function(request,response)
        {
-         const expenseData= await Expense.find()
+
+          const expenseData= await Expense.find()
          
-         response.json(expenseData)
+          response.json(expenseData)
 })
 app.delete('/ouu/:id',async function(request,response)
 {
